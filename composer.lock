@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23a4433eea83f77e85bc1204b52a8909",
+    "content-hash": "fc41a1319ea220e5c06c53d22860cb94",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,49 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "innovaat/topdesk-api",
+            "version": "v0.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/innovaat/topdesk-php.git",
+                "reference": "88346f1d5c897fd087f379cbb1b2080c4bcfba44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/innovaat/topdesk-php/zipball/88346f1d5c897fd087f379cbb1b2080c4bcfba44",
+                "reference": "88346f1d5c897fd087f379cbb1b2080c4bcfba44",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "6.*|^7.0",
+                "php": "7.*|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Innovaat\\Topdesk\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP implementation for the TOPdesk API",
+            "homepage": "https://github.com/innovaat/topdesk-php",
+            "keywords": [
+                "api",
+                "innovaat",
+                "itil",
+                "topdesk"
+            ],
+            "support": {
+                "issues": "https://github.com/innovaat/topdesk-php/issues",
+                "source": "https://github.com/innovaat/topdesk-php/tree/v0.0.5"
+            },
+            "time": "2022-03-30T14:00:39+00:00"
         },
         {
             "name": "laravel/framework",
