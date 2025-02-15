@@ -59,6 +59,28 @@
         "dev": [
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+        ],
+        "pint": "pint",
+        "pint:dirty": "pint --dirty",
+        "pint:test": "pint --test",
+        "pest": "pest",
+        "pest:dirty": "pest --dirty",
+        "pest:arch": "pest --filter=arch",
+        "pest:coverage": "pest --colors=always --coverage --min=50",
+        "rector": "rector",
+        "rector:dirty": "rector --dirty",
+        "rector:test": "rector --dry-run",
+        "phpstan": "phpstan analyse --memory-limit=2G",
+        "test": [
+            "@pint:test",
+            "@rector:test",
+            "@phpstan",
+            "@pest:coverage"
+        ],
+        "dirty": [
+            "@pint:dirty",
+            "@rector",
+            "@pest:dirty"
         ]
     },
     "extra": {
