@@ -37,4 +37,10 @@ return [
         ],
     ],
 
+    'topdesk' => [
+        'url' => env('TOPDESK_URL'),
+        'username' => env('TOPDESK_USERNAME'),
+        'password' => env('TOPDESK_PASSWORD'),
+    ],
+
 ];
