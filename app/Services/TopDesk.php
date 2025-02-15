@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Innovaat\Topdesk\Api;
+use Illuminate\Support\Facades\Cache;
 
 final readonly class TopDesk
 {
@@ -27,26 +28,30 @@ final readonly class TopDesk
      */
     public function getTotalOpenIncidents(): int
     {
-        $incidents = [];
+        $result = Cache::remember('getTotalOpenIncidents', 60, function () {
+            $incidents = [];
 
-        $start = 0;
-        $page_size = 150;
-        $incrementBy = 150;
+            $start = 0;
+            $page_size = 150;
+            $incrementBy = 150;
 
-        while ($start < $page_size) {
-            $newIncidents = $this->api->getListOfIncidents([
-                'start' => $start,
-                'page_size' => $page_size,
-                'fields' => 'id,number',
-                'query' => 'completed==false',
-            ]);
+            while ($start < $page_size) {
+                $newIncidents = $this->api->getListOfIncidents([
+                    'start' => $start,
+                    'page_size' => $page_size,
+                    'fields' => 'id,number',
+                    'query' => 'completed==false',
+                ]);
 
-            $incidents = array_merge($incidents, $newIncidents);
+                $incidents = array_merge($incidents, $newIncidents);
 
-            $start += $page_size;
-            $page_size += $incrementBy;
-        }
+                $start += $page_size;
+                $page_size += $incrementBy;
+            }
+            
+            return $incidents;
+        });
 
-        return count($incidents);
+        return count($result);
     }
 }
