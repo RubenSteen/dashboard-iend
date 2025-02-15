@@ -78,7 +78,8 @@
         ],
         "dirty": [
             "@pint:dirty",
-            "@rector"
+            "@rector",
+            "@phpstan"
         ]
     },
     "extra": {
