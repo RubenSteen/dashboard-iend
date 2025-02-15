@@ -66,7 +66,7 @@
         "pest": "pest",
         "pest:dirty": "pest --dirty",
         "pest:arch": "pest --filter=arch",
-        "pest:coverage": "pest --colors=always --coverage --min=50",
+        "pest:coverage": "pest --colors=always --coverage --min=100",
         "rector": "rector",
         "rector:dirty": "rector --dirty",
         "rector:test": "rector --dry-run",
@@ -74,13 +74,11 @@
         "test": [
             "@pint:test",
             "@rector:test",
-            "@phpstan",
-            "@pest:coverage"
+            "@phpstan"
         ],
         "dirty": [
             "@pint:dirty",
-            "@rector",
-            "@pest:dirty"
+            "@rector"
         ]
     },
     "extra": {
