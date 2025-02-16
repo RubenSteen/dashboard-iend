@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\ProfileController;
-use App\Livewire\Dashboard;
+use App\Livewire\Wallboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', Dashboard::class)->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/wallboard', Wallboard::class)->middleware(['auth', 'verified'])->name('wallboard');
 
-Route::get('/dashboard-backup', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
