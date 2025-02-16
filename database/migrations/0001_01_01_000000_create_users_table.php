@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('topdesk_url')->nullable();
+            $table->string('topdesk_username')->nullable();
+            $table->string('topdesk_password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

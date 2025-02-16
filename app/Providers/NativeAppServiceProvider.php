@@ -6,6 +6,8 @@ use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
 use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Menu;
+use Native\Laravel\Dialog;
+use Native\Laravel\Facades\Notification;
 
 class NativeAppServiceProvider implements ProvidesPhpIni
 {

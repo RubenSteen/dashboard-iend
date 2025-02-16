@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Http\Requests\TopDeskUpdateRequest;
 
 final class ProfileController extends Controller
 {
@@ -37,6 +38,18 @@ final class ProfileController extends Controller
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Update the user's topdesk information.
+     */
+    public function updateTopDesk(TopDeskUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
+
+        $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'topdesk-updated');
     }
 
     /**

@@ -23,6 +23,9 @@ final class User extends Authenticatable
         'name',
         'email',
         'password',
+        'topdesk_url',
+        'topdesk_username',
+        'topdesk_password',
     ];
 
     /**

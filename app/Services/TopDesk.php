@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\User;
 use Innovaat\Topdesk\Api;
 use Illuminate\Support\Facades\Cache;
 
@@ -17,10 +18,12 @@ final readonly class TopDesk
     /**
      * Create a new TopDesk instance.
      */
-    public function __construct(string $url, string $username, string $password)
+    public function __construct()
     {
-        $this->api = new Api($url);
-        $this->api->useApplicationPassword($username, $password);
+        $user = User::first();
+
+        $this->api = new Api($user->topdesk_url);
+        $this->api->useApplicationPassword($user->topdesk_username, $user->topdesk_password);
     }
 
     /**
